@@ -16,10 +16,10 @@ abstract class Controller
     public function action()
     {
         if ($this->access()) {
-            var_dump($this->access());
             return $this->handle();
         }
-        var_dump($this->access());
+
+        die('Access denied');
     }
 
     protected function access(): bool
