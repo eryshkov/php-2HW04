@@ -12,4 +12,14 @@ abstract class Controller
     {
         $this->view = new View();
     }
+
+    public function action()
+    {
+        if ($this->access()) {
+            return $this->handle();
+        }
+        die('Access denied');
+    }
+
+    abstract protected function handle();
 }
