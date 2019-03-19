@@ -28,7 +28,7 @@
         ?>
         <div class="row">
             <div class="col">
-                <h6><a href="/article.php?id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a></h6>
+                <h6><a href="/?ctrl=article&id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a></h6>
             </div>
         </div>
         <?php

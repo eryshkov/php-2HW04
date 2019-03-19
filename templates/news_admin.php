@@ -52,7 +52,7 @@
                 <a class="btn btn-outline-danger" href="/admin/news_delete.php?id=<?php echo $article->id; ?>">X</a>
             </div>
             <div class="col">
-                <a href="/article.php?id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a>
+                <a href="/?ctrl=article&id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a>
             </div>
         </div>
         <?php

@@ -1,5 +1,8 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$ctrl = new \App\Controllers\Index();
+$ctrlName = isset($_GET['ctrl']) ? ucfirst($_GET['ctrl']) : 'Index';
+$ctrlClass = '\App\Controllers\\' . $ctrlName;
+
+$ctrl = new $ctrlClass;
 $ctrl->action();
