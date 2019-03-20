@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="/admin/news_create.php" method="post" enctype="multipart/form-data">
+            <form action="/?ctrl=ArticleCreate" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input class="form-control" type="text" name="title" placeholder="Заголовок новости">
                 </div>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col-auto">
-                        <a href="/admin/" class="btn-outline-secondary btn form-control">Отмена</a>
+                        <a href="/?ctrl=admin" class="btn-outline-secondary btn form-control">Отмена</a>
                     </div>
                     <div class="col-auto">
                         <button class="btn btn-primary form-control" type="submit">Сохранить</button>

@@ -38,7 +38,7 @@
     } ?>
     <div class="row">
         <div class="col">
-            <a class="btn btn-outline-primary mb-1" href="/admin/news_insert_form.php">Добавить новость</a>
+            <a class="btn btn-outline-primary mb-1" href="/?ctrl=ArticleInsert">Добавить новость</a>
         </div>
     </div>
     <?php
@@ -46,10 +46,10 @@
         ?>
         <div class="row mb-1">
             <div class="col-auto">
-                <a class="btn btn-outline-info" href="/admin/news_edit.php?id=<?php echo $article->id; ?>">✎</a>
+                <a class="btn btn-outline-info" href="/?ctrl=ArticleEdit&id=<?php echo $article->id; ?>">✎</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-outline-danger" href="/admin/news_delete.php?id=<?php echo $article->id; ?>">X</a>
+                <a class="btn btn-outline-danger" href="/?ctrl=ArticleDelete&id=<?php echo $article->id; ?>">X</a>
             </div>
             <div class="col">
                 <a href="/?ctrl=article&id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a>

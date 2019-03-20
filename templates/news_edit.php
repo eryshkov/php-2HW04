@@ -29,7 +29,7 @@
         ?>
         <div class="row">
             <div class="col">
-                <form action="/admin/news_update.php" method="post" enctype="multipart/form-data">
+                <form action="/?ctrl=ArticleUpdate" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $article->id; ?>">
                     <div class="form-group">
                         <input class="form-control" type="text" name="title" value="<?php echo $article->title; ?>">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col-auto">
-                            <a href="/admin/" class="btn-outline-secondary btn form-control">Отмена</a>
+                            <a href="/?ctrl=admin" class="btn-outline-secondary btn form-control">Отмена</a>
                         </div>
                         <div class="col-auto">
                             <button class="btn btn-primary form-control" type="submit">Сохранить</button>
