@@ -46,10 +46,10 @@
         ?>
         <div class="row mb-1">
             <div class="col-auto">
-                <a class="btn btn-outline-info" href="/?ctrl=ArticleEdit&id=<?php echo $article->id; ?>">✎</a>
+                <a class="btn btn-outline-info" href="/admin/article/edit?id=<?php echo $article->id; ?>">✎</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-outline-danger" href="/?ctrl=ArticleDelete&id=<?php echo $article->id; ?>">X</a>
+                <a class="btn btn-outline-danger" href="/admin/article/delete?id=<?php echo $article->id; ?>">X</a>
             </div>
             <div class="col">
                 <a href="/article?id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a>
