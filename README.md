@@ -12,7 +12,7 @@
 
 ## Информация для проверяющего
 * дамп БД в папке `db_dump`
-* решение задачи номер 2 находится [здесь]()
+* решение задачи номер 2 находится [здесь](https://github.com/eryshkov/php-2HW04/tree/task_two)
 
 ## Main functionality
 * Controller & Front Controller
