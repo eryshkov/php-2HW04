@@ -15,12 +15,7 @@ class Router
                 continue;
             }
 
-            if (is_numeric($part)) {
-                continue;
-            }
-
             $cleanURIParts[] = ucfirst($part);
-
         }
 
         if (empty($cleanURIParts)) {
@@ -28,7 +23,6 @@ class Router
         }
 
         return '\App\Controllers\\' . implode('\\', $cleanURIParts);
-
     }
 
     protected function getAddrPart(string $uri): ?string
