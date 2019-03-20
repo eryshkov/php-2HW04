@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin\Article;
 
-class ArticleInsert extends Controller
+use App\Controllers\Controller;
+
+class Insert extends Controller
 {
     protected function handle(): void
     {

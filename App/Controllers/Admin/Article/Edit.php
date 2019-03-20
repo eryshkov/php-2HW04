@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin\Article;
 
-class ArticleEdit extends Controller
+use App\Controllers\Controller;
+
+class Edit extends Controller
 {
     protected function handle(): void
     {

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin\Article;
 
-class ArticleUpdate extends Controller
+use App\Controllers\Controller;
+
+class Update extends Controller
 {
     protected function handle(): void
     {
