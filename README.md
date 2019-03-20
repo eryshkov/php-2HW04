@@ -12,7 +12,10 @@
 
 ## Информация для проверяющего
 * дамп БД в папке `db_dump`
-* решение задачи номер 2 находится [здесь](https://github.com/eryshkov/php-2HW04/tree/task_two)
+* решение задачи номер 2 и 3 находится [здесь](https://github.com/eryshkov/php-2HW04/tree/task_two)
+* для решения задачи 4 была применена дополнительная настройка web-сервера nginx:
+ <br>
+ <img src="/screens/nginx.png" width="100%"> 
 
 ## Main functionality
 * Controller & Front Controller
