@@ -20,7 +20,7 @@ abstract class Controller
             return;
         }
 
-        die('Access denied');
+        die('Доступ закрыт');
     }
 
     protected function access(): bool
