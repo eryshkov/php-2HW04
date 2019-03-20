@@ -1,0 +1,8 @@
+http://php-2hw04.mac/?ctrl=article&id=4         >>> http://php-2hw04.mac/article/4/
+http://php-2hw04.mac/admin/news_insert_form.php >>> http://php-2hw04.mac/admin/article/insert
+http://php-2hw04.mac/admin/news_edit.php?id=4   >>> http://php-2hw04.mac/admin/article/edit/4
+http://php-2hw04.mac/admin/news_delete.php?id=4 >>> http://php-2hw04.mac/admin/article/delete/4
+
+$uri = $_SERVER['REQUEST_URI'];
+$uriParts = explode('/', $uri);
+var_dump($uriParts);
