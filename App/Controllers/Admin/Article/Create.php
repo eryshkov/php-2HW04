@@ -15,7 +15,7 @@ class Create extends Controller
             $article->content = $_POST['content'];
             $article->insert();
 
-            header('Location:' . '/?ctrl=admin');
+            header('Location:' . '/admin');
             return;
         }
     }

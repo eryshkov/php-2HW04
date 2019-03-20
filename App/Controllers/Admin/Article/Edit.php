@@ -11,7 +11,7 @@ class Edit extends Controller
         if (isset($_GET['id'])) {
             $this->view->article = \App\Models\Article::findById($_GET['id']);
             if (false === $this->view->article) {
-                header('Location:' . '/?ctrl=admin');
+                header('Location:' . '/admin');
                 return;
             }
         }

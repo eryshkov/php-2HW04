@@ -12,11 +12,11 @@ class Delete extends Controller
             $article = \App\Models\Article::findById($_GET['id']);
             if (false !== $article) {
                 $article->delete();
-                header('Location:' . '/?ctrl=admin');
+                header('Location:' . '/admin');
                 return;
             }
         }
 
-        header('Location:' . '/?ctrl=admin');
+        header('Location:' . '/admin');
     }
 }

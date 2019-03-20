@@ -11,7 +11,7 @@ class Update extends Controller
         if (isset($_POST['title'], $_POST['content'], $_POST['id'])) {
             $article = \App\Models\Article::findById($_POST['id']);
             if (false === $article) {
-                header('Location:' . '/?ctrl=admin');
+                header('Location:' . '/admin');
                 exit();
             }
 
@@ -19,7 +19,7 @@ class Update extends Controller
             $article->content = $_POST['content'];
             $article->update();
 
-            header('Location:' . '/?ctrl=admin');
+            header('Location:' . '/admin');
             return;
         }
     }

@@ -1,6 +1,0 @@
-Не ЧПУ                                             ЧПУ
-http://php-2hw04.mac/?ctrl=article&id=4         >>> http://php-2hw04.mac/article/?id=4
-http://php-2hw04.mac/?ctrl=admin                >>> http://php-2hw04.mac/admin
-http://php-2hw04.mac/?ctrl=ArticleInsert        >>> http://php-2hw04.mac/admin/article/insert
-http://php-2hw04.mac/?ctrl=ArticleEdit&id=4     >>> http://php-2hw04.mac/admin/article/edit/?id=4
-http://php-2hw04.mac/?ctrl=ArticleDelete&id=4   >>> http://php-2hw04.mac/admin/article/delete/?id=4
