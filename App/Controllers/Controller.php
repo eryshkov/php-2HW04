@@ -13,10 +13,11 @@ abstract class Controller
         $this->view = new View();
     }
 
-    public function action()
+    public function action(): void
     {
         if ($this->access()) {
-            return $this->handle();
+            $this->handle();
+            return;
         }
 
         die('Access denied');
@@ -27,5 +28,5 @@ abstract class Controller
         return true;
     }
 
-    abstract protected function handle();
+    abstract protected function handle(): void;
 }
