@@ -16,6 +16,6 @@ class Edit extends Controller
             }
         }
 
-        $this->view->display(__DIR__ . '/../../templates/news_edit.php');
+        $this->view->display(__DIR__ . '/../../../../templates/news_edit.php');
     }
 }
