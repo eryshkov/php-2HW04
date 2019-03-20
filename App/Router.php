@@ -2,7 +2,7 @@
 
 namespace App;
 
-class UriExtractor
+class Router
 {
     public function getClassName(): string
     {
