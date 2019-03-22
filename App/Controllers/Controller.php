@@ -7,6 +7,7 @@ use App\View;
 abstract class Controller
 {
     protected $view;
+    public $parameters = [];
 
     public function __construct()
     {
