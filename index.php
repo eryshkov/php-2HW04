@@ -5,5 +5,5 @@ $router = new \App\Router();
 $ctrlClass = $router->getControllerName();
 
 $ctrl = new $ctrlClass;
-$ctrl->parameters = $router->getParameters();
+$ctrl->setParameters($router->getParameters());
 $ctrl->action();

@@ -8,8 +8,10 @@ class Edit extends Controller
 {
     protected function handle(): void
     {
-        if (!empty($this->parameters)) {
-            $this->view->article = \App\Models\Article::findById(reset($this->parameters));
+        $parameter = $this->getParameters();
+
+        if (!empty($parameter)) {
+            $this->view->article = \App\Models\Article::findById(reset($parameter));
             if (false === $this->view->article) {
                 header('Location:' . '/admin');
                 return;
