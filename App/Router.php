@@ -12,7 +12,7 @@ class Router
         $uri = $_SERVER['REQUEST_URI'];
         $uriParts = explode('/', $uri);
 
-        $cleanURIParts = [];
+        $goodURIParts = [];
         foreach ($uriParts as $part) {
             if (!isset($part) || '' === $part) {
                 continue;
@@ -23,14 +23,14 @@ class Router
                 continue;
             }
 
-            $cleanURIParts[] = ucfirst($part);
+            $goodURIParts[] = ucfirst($part);
         }
 
-        if (empty($cleanURIParts)) {
-            $cleanURIParts[] = 'Index';
+        if (empty($goodURIParts)) {
+            $goodURIParts[] = 'Index';
         }
 
-        $this->controllerName = '\App\Controllers\\' . implode('\\', $cleanURIParts);
+        $this->controllerName = '\App\Controllers\\' . implode('\\', $goodURIParts);
     }
 
     /**
