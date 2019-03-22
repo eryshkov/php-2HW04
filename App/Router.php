@@ -4,14 +4,22 @@ namespace App;
 
 class Router
 {
-    public function getClassName(): string
+    protected $parameters = [];
+    protected $controllerName = '';
+
+    public function __construct()
     {
-        $uri = $this->getAddrPart($_SERVER['REQUEST_URI']);
+        $uri = $_SERVER['REQUEST_URI'];
         $uriParts = explode('/', $uri);
 
         $cleanURIParts = [];
         foreach ($uriParts as $part) {
             if (!isset($part) || '' === $part) {
+                continue;
+            }
+
+            if (is_numeric($part)) {
+                $this->parameters[] = $part;
                 continue;
             }
 
@@ -22,17 +30,22 @@ class Router
             $cleanURIParts[] = 'Index';
         }
 
-        return '\App\Controllers\\' . implode('\\', $cleanURIParts);
+        $this->controllerName = '\App\Controllers\\' . implode('\\', $cleanURIParts);
     }
 
-    protected function getAddrPart(string $uri): ?string
+    /**
+     * @return string
+     */
+    public function getControllerName(): string
     {
-        $addr = explode('?', $uri);
+        return $this->controllerName;
+    }
 
-        if (!empty($addr)) {
-            return reset($addr);
-        }
-
-        return null;
+    /**
+     * @return array
+     */
+    public function getParameters(): array
+    {
+        return $this->parameters;
     }
 }
