@@ -8,7 +8,7 @@ class Article extends Controller
     {
         $parameter = $this->getParameters();
 
-        $this->view->article = \App\Models\Article::findById((int)reset($parameter));
+        $this->view->article = \App\Models\Article::findById(reset($parameter));
         $this->view->display(__DIR__ . '/../../templates/article.php');
     }
 }
