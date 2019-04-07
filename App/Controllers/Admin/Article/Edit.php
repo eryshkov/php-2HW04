@@ -9,7 +9,7 @@ class Edit extends Controller
     protected function handle(): void
     {
         $parameter = $this->getParameters();
-
+        
         if (!empty($parameter)) {
             $this->view->article = \App\Models\Article::findById(reset($parameter));
             if (false === $this->view->article) {
@@ -17,7 +17,7 @@ class Edit extends Controller
                 return;
             }
         }
-
+        
         $this->view->display(__DIR__ . '/../../../../templates/news_edit.php');
     }
 }

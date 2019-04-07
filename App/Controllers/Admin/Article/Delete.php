@@ -9,7 +9,7 @@ class Delete extends Controller
     protected function handle(): void
     {
         $parameter = $this->getParameters();
-
+        
         if (!empty($parameter)) {
             $article = \App\Models\Article::findById(reset($parameter));
             if (false !== $article) {
@@ -18,7 +18,7 @@ class Delete extends Controller
                 return;
             }
         }
-
+        
         header('Location:' . '/admin');
     }
 }
