@@ -16,6 +16,7 @@ $result = [
         '/admin/article/{id}/edit/{cd}' => \App\Controllers\Admin\Article\EditDisplayer::class,
         '/admin/article/{id}/delete' => \App\Controllers\Admin\Article\Delete::class,
         '/admin' => \App\Controllers\Admin::class,
+        '' => \App\Controllers\Index::class,
     ]
 ];
 
