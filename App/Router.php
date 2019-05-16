@@ -4,16 +4,19 @@ namespace App;
 
 class Router
 {
-    protected $parametersGET = [];
+    protected function getNormalUri(): ?string
+    {
+        $uri = $_SERVER['REQUEST_URI'];
+    
+        return preg_replace('~\/*$~', '', $uri);
+    }
     
     /**
      * @return string|null
      */
     public function getControllerName(): ?string
     {
-        $uri = $_SERVER['REQUEST_URI'];
-    
-        $uri = preg_replace('~\/*$~', '', $uri);
+        $uri = $this->getNormalUri();
     
         $config = Config::instance();
         $routes = $config->data['routes'];
@@ -39,8 +42,41 @@ class Router
     /**
      * @return array
      */
-    public function getParameters(): array
+    public function getParameters(): ?array
     {
-        return $this->parametersGET;
+        $config = Config::instance();
+        $flipRoutes = array_flip($config->data['routes']);
+        
+        $controller = $this->getControllerName();
+        if (!isset($controller)) {
+            return null;
+        }
+    
+        $route = $flipRoutes[$controller];
+    
+        if (!isset($route)) {
+            return null;
+        }
+        
+        preg_match_all('~(?:{.+})~U', $route, $parameterNames);
+        foreach ($parameterNames as $key => $parameterName) {
+            $parameterNames[$key] = str_replace(['{', '}'], '', $parameterName);
+        }
+    
+        $parameterNames = reset($parameterNames);
+        var_dump($parameterNames);
+        
+        if (!isset($parameterNames)) {
+            return null;
+        }
+    
+        $regExp = $route;
+        foreach ($parameterNames as $parameterName) {
+            $regExp = str_replace($parameterName, sprintf('(?P<%s>.+)', $parameterName), $regExp);
+        }
+        $regExp = str_replace('/', '\/', $regExp);
+        $regExp = str_replace(['{', '}'], '', $regExp);
+        var_dump($regExp);
+        die();
     }
 }
