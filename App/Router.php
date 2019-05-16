@@ -4,41 +4,36 @@ namespace App;
 
 class Router
 {
-    protected $parameters = [];
-    protected $controllerName = '';
-    
-    public function __construct()
-    {
-        $uri = $_SERVER['REQUEST_URI'];
-        $uriParts = explode('/', $uri);
-        
-        $goodURIParts = [];
-        foreach ($uriParts as $part) {
-            if (!isset($part) || '' === $part) {
-                continue;
-            }
-            
-            if (is_numeric($part)) {
-                $this->parameters[] = $part;
-                continue;
-            }
-            
-            $goodURIParts[] = ucfirst($part);
-        }
-        
-        if (empty($goodURIParts)) {
-            $goodURIParts[] = 'Index';
-        }
-        
-        $this->controllerName = '\App\Controllers\\' . implode('\\', $goodURIParts);
-    }
+    protected $parametersGET = [];
     
     /**
-     * @return string
+     * @return string|null
      */
-    public function getControllerName(): string
+    public function getControllerName(): ?string
     {
-        return $this->controllerName;
+        $uri = $_SERVER['REQUEST_URI'];
+    
+        $uri = preg_replace('~\/*$~', '', $uri);
+    
+        $config = Config::instance();
+        $routes = $config->data['routes'];
+    
+        $regExps = [];
+        foreach ($routes as $routePattern => $className) {
+            $res = str_replace('/', '\/', $routePattern);
+            $res = preg_replace('~{.+}~', '.+', $res);
+            if (isset($res)) {
+                $regExps[$className] = '~^' . $res . '$~';
+            }
+        }
+    
+        foreach ($regExps as $className => $regExp) {
+            if (1 === preg_match($regExp, $uri)) {
+                return $className;
+            }
+        }
+        
+        return null;
     }
     
     /**
@@ -46,6 +41,6 @@ class Router
      */
     public function getParameters(): array
     {
-        return $this->parameters;
+        return $this->parametersGET;
     }
 }
