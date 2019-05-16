@@ -7,7 +7,7 @@ class Router
     protected function getNormalUri(): ?string
     {
         $uri = $_SERVER['REQUEST_URI'];
-    
+        
         return preg_replace('~\/*$~', '', $uri);
     }
     
@@ -17,10 +17,10 @@ class Router
     public function getControllerName(): ?string
     {
         $uri = $this->getNormalUri();
-    
+        
         $config = Config::instance();
         $routes = $config->data['routes'];
-    
+        
         $regExps = [];
         foreach ($routes as $routePattern => $className) {
             $res = str_replace('/', '\/', $routePattern);
@@ -29,7 +29,7 @@ class Router
                 $regExps[$className] = '~^' . $res . '$~';
             }
         }
-    
+        
         foreach ($regExps as $className => $regExp) {
             if (1 === preg_match($regExp, $uri)) {
                 return $className;
@@ -51,9 +51,9 @@ class Router
         if (!isset($controller)) {
             return null;
         }
-    
+        
         $route = $flipRoutes[$controller];
-    
+        
         if (!isset($route)) {
             return null;
         }
@@ -62,21 +62,28 @@ class Router
         foreach ($parameterNames as $key => $parameterName) {
             $parameterNames[$key] = str_replace(['{', '}'], '', $parameterName);
         }
-    
+        
         $parameterNames = reset($parameterNames);
-        var_dump($parameterNames);
         
         if (!isset($parameterNames)) {
             return null;
         }
-    
-        $regExp = $route;
+        
+        $regExp = '~' . $route . '~J';
         foreach ($parameterNames as $parameterName) {
             $regExp = str_replace($parameterName, sprintf('(?P<%s>.+)', $parameterName), $regExp);
         }
-        $regExp = str_replace('/', '\/', $regExp);
-        $regExp = str_replace(['{', '}'], '', $regExp);
-        var_dump($regExp);
-        die();
+        $regExp = str_replace(['/', '{', '}'], ['\/', '', ''], $regExp);
+    
+        preg_match_all($regExp, $this->getNormalUri(), $matches);
+        
+        $result = null;
+        foreach ($parameterNames as $parameterName) {
+            if (isset($matches[$parameterName])) {
+                $result[$parameterName] = reset($matches[$parameterName]);
+            }
+        }
+    
+        return $result;
     }
 }
