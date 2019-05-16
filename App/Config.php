@@ -4,6 +4,9 @@ namespace App;
 
 class Config
 {
+    /**
+     * @var array
+     */
     public $data;
     
     protected function __construct()
