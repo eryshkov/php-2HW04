@@ -7,7 +7,7 @@ use App\View;
 abstract class Controller
 {
     protected $view;
-    protected $parameters = [];
+    protected $parameters;
     
     public function __construct()
     {
@@ -42,7 +42,7 @@ abstract class Controller
     /**
      * @param array $parameters
      */
-    public function setParameters(array $parameters): void
+    public function setParameters(?array $parameters): void
     {
         $this->parameters = $parameters;
     }
