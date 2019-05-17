@@ -11,15 +11,15 @@ class Delete extends BaseController
     {
         $id = $this->getRequestParameters()['id'];
         
-        if (isset($id)) {
-            $article = Article::findById($id);
-            if (false !== $article) {
-                $article->delete();
-                header('Location:' . '/admin');
-                return;
-            }
+        if (!isset($id)) {
+            header('Location:' . '/admin');
         }
         
-        header('Location:' . '/admin');
+        $article = Article::findById($id);
+        if (false !== $article) {
+            $article->delete();
+            header('Location:' . '/admin');
+            return;
+        }
     }
 }
