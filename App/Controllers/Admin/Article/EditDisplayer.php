@@ -3,15 +3,16 @@
 namespace App\Controllers\Admin\Article;
 
 use App\Controllers\BaseController;
+use App\Models\Article;
 
 class EditDisplayer extends BaseController
 {
     protected function handle(): void
     {
-        $parameter = $this->getRequestParameters();
+        $id = $this->getRequestParameters()['id'];
         
-        if (!empty($parameter)) {
-            $this->view->article = \App\Models\Article::findById(reset($parameter));
+        if (!isset($id)) {
+            $this->view->article = Article::findById($id);
             if (false === $this->view->article) {
                 header('Location:' . '/admin');
                 return;
