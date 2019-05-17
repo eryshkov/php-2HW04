@@ -1,10 +1,11 @@
 <?php
+
+use App\Router;
+
 require __DIR__ . '/autoload.php';
 
-$router = new \App\Router();
-$ctrlClass = $router->getControllerName();
+$ctrlClass = (new Router())->getControllerName();
 
 /** @var \App\Controllers\Controller $ctrl */
 $ctrl = new $ctrlClass;
-$ctrl->setParameters($router->getParameters());
 $ctrl->action();
