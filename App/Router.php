@@ -78,12 +78,12 @@ class Router
         }
         $regExp = str_replace(['/', '{', '}'], ['\/', '', ''], $regExp);
         
-        preg_match_all($regExp, $this->cleanUpUri(), $matches);
+        preg_match_all($regExp, $this->cleanUpUri(), $parameterValues);
         
         $result = null;
         foreach ($parameterNames as $parameterName) {
-            if (isset($matches[$parameterName])) {
-                $result[$parameterName] = reset($matches[$parameterName]);
+            if (isset($parameterValues[$parameterName])) {
+                $result[$parameterName] = reset($parameterValues[$parameterName]);
             }
         }
         
