@@ -8,7 +8,7 @@ class EditDisplayer extends BaseController
 {
     protected function handle(): void
     {
-        $parameter = $this->getParameters();
+        $parameter = $this->getRequestParameters();
         
         if (!empty($parameter)) {
             $this->view->article = \App\Models\Article::findById(reset($parameter));

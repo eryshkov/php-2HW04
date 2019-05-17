@@ -8,7 +8,7 @@ class Delete extends BaseController
 {
     protected function handle(): void
     {
-        $parameter = $this->getParameters();
+        $parameter = $this->getRequestParameters();
         
         if (!empty($parameter)) {
             $article = \App\Models\Article::findById(reset($parameter));

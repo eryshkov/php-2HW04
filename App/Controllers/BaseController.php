@@ -34,7 +34,7 @@ abstract class BaseController
     /**
      * @return array|null
      */
-    public function getParameters(): ?array
+    public function getRequestParameters(): ?array
     {
         return (new Router())->getParameters();
     }
