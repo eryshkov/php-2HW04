@@ -4,7 +4,7 @@ namespace App\Controllers\Admin\Article;
 
 use App\Controllers\BaseController;
 
-class InsertDisplayer extends BaseController
+class InsertPresenter extends BaseController
 {
     protected function handle(): void
     {

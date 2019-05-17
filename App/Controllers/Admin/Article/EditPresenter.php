@@ -5,7 +5,7 @@ namespace App\Controllers\Admin\Article;
 use App\Controllers\BaseController;
 use App\Models\Article;
 
-class EditDisplayer extends BaseController
+class EditPresenter extends BaseController
 {
     protected function handle(): void
     {
