@@ -77,7 +77,7 @@ class Router
             $regExp = str_replace($parameterName, sprintf('(?P<%s>.+)', $parameterName), $regExp);
         }
         $regExp = str_replace(['/', '{', '}'], ['\/', '', ''], $regExp);
-    
+        
         preg_match_all($regExp, $this->getNormalUri(), $matches);
         
         $result = null;
@@ -86,7 +86,7 @@ class Router
                 $result[$parameterName] = reset($matches[$parameterName]);
             }
         }
-    
+        
         return $result;
     }
 }
