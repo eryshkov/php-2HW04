@@ -8,10 +8,10 @@ class Delete extends BaseController
 {
     protected function handle(): void
     {
-        $parameter = $this->getRequestParameters();
+        $id = $this->getRequestParameters()['id'];
         
-        if (!empty($parameter)) {
-            $article = \App\Models\Article::findById(reset($parameter));
+        if (!isset($id)) {
+            $article = \App\Models\Article::findById($id);
             if (false !== $article) {
                 $article->delete();
                 header('Location:' . '/admin');
