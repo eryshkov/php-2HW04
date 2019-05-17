@@ -7,7 +7,7 @@ class Router
     /**
      * @return string|null
      */
-    protected function getNormalUri(): ?string
+    protected function cleanUpUri(): ?string
     {
         $uri = $_SERVER['REQUEST_URI'];
         
@@ -19,7 +19,7 @@ class Router
      */
     public function getControllerName(): ?string
     {
-        $uri = $this->getNormalUri();
+        $uri = $this->cleanUpUri();
         
         $config = Config::instance();
         $routes = $config->data['routes'];
@@ -78,7 +78,7 @@ class Router
         }
         $regExp = str_replace(['/', '{', '}'], ['\/', '', ''], $regExp);
         
-        preg_match_all($regExp, $this->getNormalUri(), $matches);
+        preg_match_all($regExp, $this->cleanUpUri(), $matches);
         
         $result = null;
         foreach ($parameterNames as $parameterName) {
