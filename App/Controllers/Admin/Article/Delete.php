@@ -11,7 +11,7 @@ class Delete extends BaseController
     {
         $id = $this->getRequestParameters()['id'];
         
-        if (!isset($id)) {
+        if (isset($id)) {
             $article = Article::findById($id);
             if (false !== $article) {
                 $article->delete();

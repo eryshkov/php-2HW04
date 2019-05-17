@@ -11,7 +11,7 @@ class EditDisplayer extends BaseController
     {
         $id = $this->getRequestParameters()['id'];
         
-        if (!isset($id)) {
+        if (isset($id)) {
             $this->view->article = Article::findById($id);
             if (false === $this->view->article) {
                 header('Location:' . '/admin');
