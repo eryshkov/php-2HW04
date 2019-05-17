@@ -45,7 +45,7 @@ class Router
     /**
      * @return array|null
      */
-    public function getParameters(): ?array
+    public function getRequestParameters(): ?array
     {
         $config = Config::instance();
         $flipRoutes = array_flip($config->data['routes']);

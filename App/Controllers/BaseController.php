@@ -36,6 +36,6 @@ abstract class BaseController
      */
     public function getRequestParameters(): ?array
     {
-        return (new Router())->getParameters();
+        return (new Router())->getRequestParameters();
     }
 }
