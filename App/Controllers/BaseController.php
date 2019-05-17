@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Router;
 use App\View;
 
-abstract class Controller
+abstract class BaseController
 {
     protected $view;
     

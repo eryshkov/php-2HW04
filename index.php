@@ -6,6 +6,6 @@ require __DIR__ . '/autoload.php';
 
 $ctrlClass = (new Router())->getControllerName();
 
-/** @var \App\Controllers\Controller $ctrl */
+/** @var \App\Controllers\BaseController $ctrl */
 $ctrl = new $ctrlClass;
 $ctrl->action();

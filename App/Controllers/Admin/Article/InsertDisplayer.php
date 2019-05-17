@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Admin\Article;
 
-use App\Controllers\Controller;
+use App\Controllers\BaseController;
 
-class InsertDisplayer extends Controller
+class InsertDisplayer extends BaseController
 {
     protected function handle(): void
     {
