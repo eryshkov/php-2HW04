@@ -4,6 +4,9 @@ namespace App;
 
 class Router
 {
+    /**
+     * @return string|null
+     */
     protected function getNormalUri(): ?string
     {
         $uri = $_SERVER['REQUEST_URI'];
@@ -40,7 +43,7 @@ class Router
     }
     
     /**
-     * @return array
+     * @return array|null
      */
     public function getParameters(): ?array
     {
